@@ -1,15 +1,40 @@
+use std::io;
+use rand::Rng;
+
 fn main() {
-    let x= 43 / 5;
-    println!("The value of x is {}", x);
 
-    //now trying to initialise an array using the value of x
-    let arr = vec![0;x];
-    println!("The size of arr is {}", arr.len());
+    //call the guessing game
+    guess_game();
+    }
 
-    //call helper method
-    println!("{}", sample_printer(3,5));
-}
+    fn guess_game(){
+        //Print welcome message
+        println!("Welcome to the guessing game!");
 
-fn sample_printer(num1:u32, num2:u32) -> u32{
-    num1 + num2
+        //Generate the random number
+        let secret = rand::thread_rng().gen_range(1, 101);
+        println!("Secret number generated");
+
+        loop {
+            //Accept the user input
+            println!("Enter your guess: ");
+            let mut guess_number = String::new();
+
+            io::stdin().read_line(&mut guess_number)
+                .expect("default");
+
+            //Convert the guess to a number
+            let guess_number:u32 = guess_number.trim().parse().expect("Failed to convert");
+
+            if guess_number < secret {
+                println!("Your guess was lower");
+            }
+            else if guess_number > secret{
+                println!("Your guess was higher");
+            }
+            else{
+                println!("Bingo!");
+                break;
+            }
+    }
 }
