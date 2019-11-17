@@ -1,5 +1,8 @@
 [package]
 name = "cargo_code_tejas"
+description = "basic functions in order to learn rust language"
+repository = "https://github.com/tejas3108/hello_cargo"
+license = "MIT"
 version = "0.1.0"
 authors = ["Tejas Deshpande <deshpandetejas95@gmail.com>"]
 edition = "2018"
